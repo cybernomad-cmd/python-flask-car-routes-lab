@@ -20,7 +20,7 @@ def get_model(model):
     if model in existing_models:
         return f"{model} is available."
 
-    return f"{model} is not available.", 404
+    return f"Sorry, {model} is not available in our inventory.", 404
 
 
 if __name__ == "__main__":
