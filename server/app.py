@@ -2,25 +2,20 @@ from flask import Flask
 
 app = Flask(__name__)
 
-existing_models = [
-    "Nissan",
-    "Volkswagen",
-    "Range Rover",
-    "Lexus"
-]
+existing_models = ["Beedle", "Crossroads", "M2", "Panique"]
 
 
 @app.route("/")
-def home():
-    return "Welcome to the Car Company. Browse our available models."
+def index():
+    return "Welcome to Flatiron Cars"
 
 
-@app.route("/models/<string:model>")
-def get_model(model):
+@app.route("/<model>")
+def show_model(model):
     if model in existing_models:
-        return f"{model} is available."
+        return f"Flatiron {model} is in our fleet!"
 
-    return f"Sorry, {model} is not available in our inventory.", 404
+    return f"No models called {model} exists in our catalog"
 
 
 if __name__ == "__main__":
